@@ -43,7 +43,24 @@ public class Registration {
 		else
 		System.out.println("Last Name does not follows the pattern");
 		
+		//Adding Email ID
 		
+		System.out.println("Enter Email Id: ");
+		String email  = scan.next();
+				
+		//Matching Pattern
+		String pattern1 = "^[a-z]{3,3}+(?:.[a-z]{3,3})?+[@]+[a-z]{2,2}+[.]+[a-z]{2,2}+[.]+[a-z]{2,2}$";	
+		
+		Pattern email_pattern =  Pattern.compile(pattern1);
+		Matcher m2 = email_pattern.matcher(email);
+				
+				if(m2.matches())
+				System.out.println("Email Follows Pattern :"+email);
+				else
+				System.out.println("Email does not follows the pattern");
+		
+			
+
 	}
 	
 }
