@@ -60,7 +60,22 @@ public class Registration {
 				System.out.println("Email does not follows the pattern");
 		
 			
-
+		//Valid phone number
+				
+		System.out.println("Enter The Mobile Number");
+		scan.nextLine();
+      	String mobile_number=scan.nextLine();
+		String pattern2 ="^[1-9]{2}\\s[1-9]{1}[0-9]{9}$";
+		Pattern mobile_pattern = Pattern.compile(pattern2);
+		Matcher m3 = mobile_pattern.matcher(mobile_number);
+      	if(m3.matches()) {
+      		System.out.println("Mobile Number follows pattern: "+mobile_number);
+      		}
+	  	else {
+		      		System.out.println("Mobile Number does not follows the pattern");
+	      	}
+		      	
+	
 	}
 	
 }
