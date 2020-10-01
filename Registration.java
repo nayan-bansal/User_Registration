@@ -75,7 +75,21 @@ public class Registration {
 		      		System.out.println("Mobile Number does not follows the pattern");
 	      	}
 		      	
+	//Valid password of minimum 8 characters
 	
+      	System.out.println("Enter your password");
+		String password=scan.nextLine();
+		String pattern3="[a-z]{8,}$";
+        Pattern password_pattern = Pattern.compile(pattern3);
+        Matcher m4 = password_pattern.matcher(password);
+        if(m4.matches()) {
+        	System.out.println("password follows pattern: "+password);
+		        }
+        else {
+        	System.out.println("password does not follows the pattern");	
+
+        }
+
 	}
 	
 }
