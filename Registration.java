@@ -1,109 +1,107 @@
-package Registration;
+package UserRegValidation;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Registration {
-	public static void main(String[] args) {
+public class Registration { 
+	
+	// String Pattern Declaration
+	public static final  String FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
+	public static final  String LAST_NAME = "^[A-Z]{1}[a-z]{2,}$";
+	public static final  String EMAIL = "^[a-z]{3,3}+(?:.[a-z]{3,3})?+[@]+[a-z]{2,2}+[.]+[a-z]{2,2}+[.]+[a-z]{2,2}$";;
+	public static final  String MOBILE = "^[1-9]{2}\\\\s[1-9]{1}[0-9]{9}$";;
+	public static final  String PASSWORD = "^(?=.*[@#$%!|'<>.^*()%!])(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^\\\\\\\\s]{8,}$";;
+	
+	//First Name Function
+	public static boolean  first_name(String name) {
+		
+		Pattern pattern =  Pattern.compile(FIRST_NAME);
+		Matcher m = pattern.matcher(name);
+		return m.matches();
+	}
+	
+	//Last Name Function
+		public static boolean  last_name(String name) {
+			
+			Pattern pattern =  Pattern.compile(LAST_NAME);
+			Matcher m = pattern.matcher(name);
+			return m.matches();
+		}
+		
+	//Email Function
+		public static boolean  email_id(String name) {
+			
+			Pattern pattern =  Pattern.compile(EMAIL);
+			Matcher m = pattern.matcher(name);
+			return m.matches();
+		}
+		
+	//Phone Number Function
+		public static boolean  phone_number(String name) {
+			
+			Pattern pattern =  Pattern.compile(MOBILE);
+			Matcher m = pattern.matcher(name);
+			return m.matches();
+		}
+	
+	//Password Function
+		public static boolean  password(String name) {
+			
+			Pattern pattern =  Pattern.compile(PASSWORD);
+			Matcher m = pattern.matcher(name);
+			return m.matches();
+		}
+	
+	
+public static void main(String[] args) {
 		
 		//Printing Welcome Message
 		System.out.println("Welcome to User Registration Program");
 		
 		//Adding First Name
-		
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Enter First Name: ");
 		String first_name  = scan.next();
-		
-		String pattern = "^[A-Z]{1}[a-z]{2,}$";
-		
-		//Matching Pattern
-		
-		Pattern first_name_pattern =  Pattern.compile(pattern);
-		Matcher m = first_name_pattern.matcher(first_name);
-		
-		if(m.matches())
+
+		if(first_name(first_name) == true)
 		System.out.println("First Name Follows Pattern :"+first_name);
 		else
 		System.out.println("First Name does not follows the pattern");
 		
-		//Adding Last Name
-		
 		System.out.println("Enter Last Name: ");
 		String last_name  = scan.next();
-		
-		//Matching Pattern
-		
-		Pattern last_name_pattern =  Pattern.compile(pattern);
-		Matcher m1 = last_name_pattern.matcher(last_name);
-		
-		if(m1.matches())
+
+		if(first_name(last_name) == true)
 		System.out.println("Last Name Follows Pattern :"+last_name);
 		else
 		System.out.println("Last Name does not follows the pattern");
 		
-		//Adding Email ID
-		
 		System.out.println("Enter Email Id: ");
-		String email  = scan.next();
-				
-		//Matching Pattern
-		String pattern1 = "^[a-z]{3,3}+(?:.[a-z]{3,3})?+[@]+[a-z]{2,2}+[.]+[a-z]{2,2}+[.]+[a-z]{2,2}$";	
-		
-		Pattern email_pattern =  Pattern.compile(pattern1);
-		Matcher m2 = email_pattern.matcher(email);
-				
-				if(m2.matches())
-				System.out.println("Email Follows Pattern :"+email);
-				else
-				System.out.println("Email does not follows the pattern");
-		
-			
-		//Valid phone number
-				
-		System.out.println("Enter The Mobile Number");
-		scan.nextLine();
-      	String mobile_number=scan.nextLine();
-		String pattern2 ="^[1-9]{2}\\s[1-9]{1}[0-9]{9}$";
-		Pattern mobile_pattern = Pattern.compile(pattern2);
-		Matcher m3 = mobile_pattern.matcher(mobile_number);
-      	if(m3.matches()) {
-      		System.out.println("Mobile Number follows pattern: "+mobile_number);
-      		}
-	  	else {
-		      		System.out.println("Mobile Number does not follows the pattern");
-	      	}
-		      	
-	//Valid password of minimum 8 characters, 1 number and 1 upper case character
-	
-      	System.out.println("Enter your password");
-		String password=scan.nextLine();
-		String pattern3="^(?=.*[@#$%!|'<>.^*()%!])(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^\\\\s]{8,}$";
-        Pattern password_pattern = Pattern.compile(pattern3);
-        Matcher m4 = password_pattern.matcher(password);
-        if(m4.matches()) {
-        	System.out.println("password follows pattern: "+password);
-		        }
-        else {
-        	System.out.println("password does not follows the pattern");	
+		String email_id  = scan.next();
 
-        }
-			
-        //Checking sample emails\
-        
-        System.out.println("Enter The Email Id");
-        String email_id_sample=scan.next();
-        String pattern4 ="^[abc]+((\\.[0-9]+)|(\\+[0-9]+)|(\\-[0-9]+)|([0-9]))*@*+[a-zA-Z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        Pattern email_sample = Pattern.compile(pattern4);
-        Matcher m5 = email_sample.matcher(email_id_sample);	
-        if(m5.matches()) {
-        	System.out.println("Email follows pattern: "+email_id_sample);
-        }
-        else {
-        	System.out.println("Email does not follows the pattern");	
-        }
+		if(first_name(email_id) == true)
+		System.out.println("Email Id Follows Pattern :"+email_id);
+		else
+		System.out.println("Email Id does not follows the pattern");
+		
+		System.out.println("Enter Phone Number: ");
+		String phone  = scan.next();
+
+		if(first_name(phone) == true)
+		System.out.println("Phone Number Follows Pattern :"+phone);
+		else
+		System.out.println("Phone Number does not follows the pattern");
+		
+		scan.nextLine();
+		System.out.println("Enter Password: ");
+		String password  = scan.next();
+
+		if(first_name(password) == true)
+		System.out.println("Password Follows Pattern :"+first_name);
+		else
+		System.out.println("Password does not follows the pattern");
 	
 	}
-	
-	}
+}
+
